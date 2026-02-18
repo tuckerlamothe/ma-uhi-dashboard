@@ -1,17 +1,16 @@
-# --- ADD THIS AT THE VERY TOP (LINES 1-5) ---
 import sys
 import subprocess
 
-# This manually forces the installation of the missing module if it's gone
+# 0. THE "GHOST" MODULE FIX (CRITICAL FOR FEB 2026)
+# Standard pkg_resources was removed in setuptools 81.0+. 
+# We force a version below 81 so geemap can find it.
 try:
     import pkg_resources
 except ImportError:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "setuptools"])
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "setuptools<81"])
     import pkg_resources
 
-import streamlit as st
-import geemap.foliumap as geemap
-import ee
+# 1. STANDARD IMPORTS (No duplicates!)
 import streamlit as st
 import geemap.foliumap as geemap
 import ee
