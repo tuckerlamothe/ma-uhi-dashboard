@@ -1,16 +1,14 @@
 import sys
 import subprocess
 
-# 0. THE "GHOST" MODULE FIX (CRITICAL FOR FEB 2026)
-# Standard pkg_resources was removed in setuptools 81.0+. 
-# We force a version below 81 so geemap can find it.
+# 0. THE "GHOST" MODULE FIX
 try:
     import pkg_resources
 except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "setuptools<81"])
     import pkg_resources
 
-# 1. STANDARD IMPORTS (No duplicates!)
+# 1. STANDARD IMPORTS
 import streamlit as st
 import geemap.foliumap as geemap
 import ee
@@ -18,6 +16,7 @@ import pandas as pd
 from streamlit_folium import st_folium
 import folium
 
+# --- THE REST OF YOUR CODE (Section 1 Authenticate, etc.) ---
 # 1. AUTHENTICATE AND INITIALIZE
 # ---------------------------------------------------------
 # Using the specific project ID provided for Earth Engine access
