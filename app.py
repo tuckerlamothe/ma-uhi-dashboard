@@ -10,11 +10,24 @@ import folium
 # Using the specific project ID provided for Earth Engine access
 my_project = 'massachusetts-uhi'
 
-try:
-    ee.Initialize(project=my_project)
-except Exception:
-    ee.Authenticate()
-    ee.Initialize(project=my_project)
+# Check if we are running on Streamlit Cloud (where secrets exist)
+if "EE_SERVICE_ACCOUNT" in st.secrets:
+    try:
+        # Use the bot credentials from the vault
+        creds = ee.ServiceAccountCredentials(
+            st.secrets["EE_SERVICE_ACCOUNT"], 
+            st.secrets["EE_PRIVATE_KEY"]
+        )
+        ee.Initialize(creds, project=my_project)
+    except Exception as e:
+        st.error(f"Cloud Authentication Failed: {e}")
+else:
+    # Use your local personal login
+    try:
+        ee.Initialize(project=my_project)
+    except Exception:
+        ee.Authenticate()
+        ee.Initialize(project=my_project)
 
 # 2. APP SETUP & SESSION STATE (CRITICAL FOR STABILITY)
 # ---------------------------------------------------------
@@ -369,3 +382,9 @@ if active_geom:
 else:
     st.info("💡 Draw a polygon on the map or select a town from the sidebar to analyze a specific neighborhood.")
 
+# --- FOOTER ---
+st.divider()
+st.markdown(
+    "[Created by Tucker Lamothe](https://www.linkedin.com/in/tucker-lamothe-313472389/)", 
+    help="Visit my LinkedIn profile"
+)
