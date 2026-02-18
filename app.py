@@ -1,3 +1,17 @@
+# --- ADD THIS AT THE VERY TOP (LINES 1-5) ---
+import sys
+import subprocess
+
+# This manually forces the installation of the missing module if it's gone
+try:
+    import pkg_resources
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "setuptools"])
+    import pkg_resources
+
+import streamlit as st
+import geemap.foliumap as geemap
+import ee
 import streamlit as st
 import geemap.foliumap as geemap
 import ee
@@ -388,3 +402,4 @@ st.markdown(
     "[Created by Tucker Lamothe](https://www.linkedin.com/in/tucker-lamothe-313472389/)", 
     help="Visit my LinkedIn profile"
 )
+
