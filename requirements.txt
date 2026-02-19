@@ -1,9 +1,9 @@
-streamlit
-geemap
+setuptools<81
+streamlit==1.31.0
+geemap==0.32.1
 earthengine-api
 pandas
-streamlit-folium
-folium
-setuptools<81
-python-box<7.0.0
+streamlit-folium==0.18.0
+folium==0.15.0
+python-box==6.1.0
 pyproj
