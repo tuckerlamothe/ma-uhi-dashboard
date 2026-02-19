@@ -24,17 +24,21 @@ my_project = 'massachusetts-uhi'
 
 if "EE_SERVICE_ACCOUNT" in st.secrets:
     try:
-        # We define a dictionary for the credentials
-        # This bypasses the "File name too long" and "File not found" errors
         creds = ee.ServiceAccountCredentials(
             st.secrets["EE_SERVICE_ACCOUNT"], 
-            key_data=st.secrets["EE_PRIVATE_KEY"] # Note the 'key_data=' part!
+            key_data=st.secrets["EE_PRIVATE_KEY"]
         )
         ee.Initialize(creds, project=my_project)
+        
+        # --- THE FIX FOR ATTRIBUTEERROR ---
+        # Older geemap looks for _credentials, but newer EE api hides it.
+        # We manually link them so geemap doesn't crash on m = geemap.Map()
+        ee.data._credentials = creds 
+        
         st.sidebar.success("✅ Connected to Earth Engine")
     except Exception as e:
         st.error(f"Cloud Authentication Failed: {e}")
-        st.info("Check if your Private Key in Secrets starts with -----BEGIN PRIVATE KEY-----")
+        st.stop()
 else:
     # Local fallback
     try:
