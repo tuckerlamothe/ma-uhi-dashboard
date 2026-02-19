@@ -7,3 +7,4 @@ streamlit-folium==0.21.0
 folium==0.17.0
 python-box==6.1.0
 pyproj
+ipython
