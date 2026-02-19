@@ -1,7 +1,7 @@
 import sys
 import subprocess
 
-# 0. THE "GHOST" MODULE FIX
+# 0. THE "GHOST" MODULE FIX (CRITICAL FOR FEB 2026)
 try:
     import pkg_resources
 except ImportError:
@@ -16,34 +16,35 @@ import pandas as pd
 from streamlit_folium import st_folium
 import folium
 
-# --- THE REST OF YOUR CODE (Section 1 Authenticate, etc.) ---
-# 1. AUTHENTICATE AND INITIALIZE
-# ---------------------------------------------------------
-# Using the specific project ID provided for Earth Engine access
+# 2. PAGE CONFIG - THIS MUST BE THE FIRST 'ST' COMMAND
+st.set_page_config(layout="wide", page_title="MA UHI Dashboard")
+
+# 3. AUTHENTICATE AND INITIALIZE
 my_project = 'massachusetts-uhi'
 
-# Check if we are running on Streamlit Cloud (where secrets exist)
 if "EE_SERVICE_ACCOUNT" in st.secrets:
     try:
-        # Use the bot credentials from the vault
+        # We define a dictionary for the credentials
+        # This bypasses the "File name too long" and "File not found" errors
         creds = ee.ServiceAccountCredentials(
             st.secrets["EE_SERVICE_ACCOUNT"], 
-            st.secrets["EE_PRIVATE_KEY"]
+            key_data=st.secrets["EE_PRIVATE_KEY"] # Note the 'key_data=' part!
         )
         ee.Initialize(creds, project=my_project)
+        st.sidebar.success("✅ Connected to Earth Engine")
     except Exception as e:
         st.error(f"Cloud Authentication Failed: {e}")
+        st.info("Check if your Private Key in Secrets starts with -----BEGIN PRIVATE KEY-----")
 else:
-    # Use your local personal login
+    # Local fallback
     try:
         ee.Initialize(project=my_project)
     except Exception:
         ee.Authenticate()
         ee.Initialize(project=my_project)
 
-# 2. APP SETUP & SESSION STATE (CRITICAL FOR STABILITY)
-# ---------------------------------------------------------
-st.set_page_config(layout="wide", page_title="MA UHI Dashboard")
+# --- YOUR APP CONTENT STARTS HERE ---
+st.title("Massachusetts Urban Heat Island Dashboard")
 st.title("Massachusetts Urban Heat Island Dashboard")
 st.markdown("""
 This dashboard allows you to analyze the **Urban Heat Island (UHI)** effect across Massachusetts. 
