@@ -298,6 +298,18 @@ map_output = st_folium(
     returned_objects=["last_active_drawing"]
 )
 
+st.markdown("""
+    <style>
+    .block-container {
+        padding-top: 2rem;
+        padding-bottom: 0rem;
+    }
+    div.stVerticalBlock > div {
+        margin-bottom: -15px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 # --- THE PRECISION CATCHER (MOVED HERE) ---
 # We check the map_output directly for new drawings
 if map_output and map_output.get("last_active_drawing"):
@@ -404,4 +416,5 @@ st.markdown(
     "[Created by Tucker Lamothe](https://www.linkedin.com/in/tucker-lamothe-313472389/)", 
     help="Visit my LinkedIn profile"
 )
+
 
