@@ -35,7 +35,6 @@ if "EE_SERVICE_ACCOUNT" in st.secrets:
     except Exception as e:
         st.error(f"Cloud Authentication Failed: {e}")
         st.info("Check if your Private Key in Secrets starts with -----BEGIN PRIVATE KEY-----")
-	st.stop()
 else:
     # Local fallback
     try:
