@@ -407,8 +407,6 @@ if active_geom:
 
     except Exception as e:
         st.error(f"Analysis Error: {e}")
-else:
-    st.info("💡 Draw a polygon on the map or select a town from the sidebar to analyze a specific neighborhood.")
 
 # --- FOOTER ---
 st.divider()
@@ -416,5 +414,11 @@ st.markdown(
     "[Created by Tucker Lamothe](https://www.linkedin.com/in/tucker-lamothe-313472389/)", 
     help="Visit my LinkedIn profile"
 )
+
+else:
+    st.info("💡 Draw a polygon on the map or select a town from the sidebar to analyze a specific neighborhood.")
+
+
+
 
 
