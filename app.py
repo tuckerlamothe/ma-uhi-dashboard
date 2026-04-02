@@ -283,7 +283,7 @@ map_output = st_folium(
     height=500, 
     width=None,
     use_container_width=True,
-    returned_objects=["last_active_drawing"]
+    returned_objects=["last_active_drawing"],
     draw_export=True
 )
 
