@@ -242,19 +242,6 @@ if selected_town != "None (Explore/Draw Map)" and st.session_state.saved_polygon
 # Change map_key to be dynamic
 map_key = f"uhi_map_{st.session_state.map_id}"
 
-if map_key in st.session_state:
-    map_state = st.session_state[map_key]
-    if map_state.get("last_active_drawing"):
-        poly_geom = map_state["last_active_drawing"]["geometry"]
-        
-        # Only update and rerun if it's a new polygon
-        if st.session_state.saved_polygon != poly_geom:
-            st.session_state.saved_polygon = poly_geom
-            all_coords = poly_geom['coordinates'][0]
-            lats = [c[1] for c in all_coords]; lngs = [c[0] for c in all_coords]
-            st.session_state.bounds = [[min(lats), min(lngs)], [max(lats), max(lngs)]]
-            st.rerun()
-
 m = geemap.Map(center=st.session_state.map_center, zoom=st.session_state.map_zoom)
 m.add_basemap("HYBRID")
 
@@ -297,6 +284,7 @@ map_output = st_folium(
     width=None,
     use_container_width=True,
     returned_objects=["last_active_drawing"]
+    draw_export=True
 )
 
 st.markdown("""
