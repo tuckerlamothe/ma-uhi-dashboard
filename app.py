@@ -310,6 +310,15 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+# --- SYNC STATUS ---
+# This creates a small indicator so you know if the app is 'Thinking'
+if st.session_state.saved_polygon:
+    st.sidebar.markdown("### 🛰️ Data Status")
+    st.sidebar.success("Area Received. Calculating...")
+elif selected_town != "None (Explore/Draw Map)":
+    st.sidebar.markdown("### 🛰️ Data Status")
+    st.sidebar.info(f"Analyzing {selected_town}...")
+    
 # --- THE PRECISION CATCHER (MOVED HERE) ---
 # We check the map_output directly for new drawings
 if map_output and map_output.get("last_active_drawing"):
