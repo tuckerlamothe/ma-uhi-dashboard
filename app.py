@@ -377,11 +377,12 @@ if active_geom:
             st.divider()
             col_a, col_b = st.columns([2, 1])
             
-            with col_a:
+with col_a:
                 st.markdown(f"### Local Heat Vulnerability: :{v_color}[{vibe}]")
                 st.caption(f"**Diagnosis:** {v_note}")
-    
-            st.info("**Why two temps?** Predicted Air Temp measures heated molecules in the atmosphere. Real Feel measures the direct radiant heat hitting your skin from hot pavement.")
+                
+                # This line was too far left, causing the lines below to look like "unexpected indents"
+                st.info("**Why two temps?** Predicted Air Temp measures heated molecules in the atmosphere. Real Feel measures the direct radiant heat hitting your skin from hot pavement.")
                 
                 comparison_df = pd.DataFrame({
                     'Metric': ['Ground Tree Canopy', 'Green Roofs', 'Pavement Cover', 'Reflectivity (Albedo)'],
