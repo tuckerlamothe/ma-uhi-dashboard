@@ -369,7 +369,7 @@ if active_geom:
             elif score > 25:
                 vibe, v_color, v_note = "MODERATE", "orange", "Urban surfaces are absorbing significant solar heat. Heat risks may persist into the night."
             elif score > 10:
-                vibe, v_color, v_note = "LOW", "blue", "The cooling effect of vegetation is helping buffer the worst of the heat and keeping surfaces moderately cool."
+                vibe, v_color, v_note = "LOW", "blue", "The cooling effect of vegetation is helping buffer the worst of the heat and keeping surfaces' temperatures largely unchanged."
             else:
                 vibe, v_color, v_note = "OPTIMAL", "green", "Natural cooling is offsetting all Urban Heat Island Effect. This area may significantly cooler than the 'Official' station temperature reported on the news."
 
