@@ -245,6 +245,14 @@ map_key = f"uhi_map_{st.session_state.map_id}"
 m = geemap.Map(center=st.session_state.map_center, zoom=st.session_state.map_zoom)
 m.add_basemap("HYBRID")
 
+# Vis params (as you had them)
+vis_tree = {'min': 0, 'max': 100, 'palette': ['#ffffff', '#228B22']}
+vis_imp = {'min': 0, 'max': 100, 'palette': ['#ffffff', '#444444']}
+
+m.add_layer(tree_canopy, vis_tree, 'Tree Canopy (%)')
+m.add_layer(impervious, vis_imp, 'Impervious Surface (%)', False)
+m.add_layer(towns.style(color='white', width=1, fillColor='00000000'), {}, 'Town Boundaries')
+
 # 2. ADD THE FAINT LABELS LAYER
 # We use the CartoDB Positron Labels layer (transparent + text only)
 folium.TileLayer(
@@ -255,14 +263,6 @@ folium.TileLayer(
     control=True,
     opacity=0.6    # Make it "faint" as you requested
 ).add_to(m)
-
-# Vis params (as you had them)
-vis_tree = {'min': 0, 'max': 100, 'palette': ['#ffffff', '#228B22']}
-vis_imp = {'min': 0, 'max': 100, 'palette': ['#ffffff', '#444444']}
-
-m.add_layer(tree_canopy, vis_tree, 'Tree Canopy (%)')
-m.add_layer(impervious, vis_imp, 'Impervious Surface (%)', False)
-m.add_layer(towns.style(color='white', width=1, fillColor='00000000'), {}, 'Town Boundaries')
 
 if st.session_state.saved_polygon:
     folium.GeoJson(st.session_state.saved_polygon,
