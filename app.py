@@ -365,13 +365,13 @@ if active_geom:
             score = (res['imperv'] * 0.4) + ((0.4 - res['albedo']) * 100) - (res['tree'] * 0.4)
 
             if score > 50:
-                vibe, v_color, v_note = "EXTREME", "red", "High pavement and low canopy create a 'Heat Trap'."
+                vibe, v_color, v_note = "EXTREME", "red", "High pavement and low canopy trap and radiate heat even after sunset."
             elif score > 25:
-                vibe, v_color, v_note = "MODERATE", "orange", "Urban surfaces are absorbing significant solar heat."
+                vibe, v_color, v_note = "MODERATE", "orange", "Urban surfaces are absorbing significant solar heat. Heat risks may persist into the night."
             elif score > 10:
-                vibe, v_color, v_note = "LOW", "blue", "Vegetation and reflectivity are helping keep surfaces cool."
+                vibe, v_color, v_note = "LOW", "blue", "Vegetation and reflectivity are helping buffer the worst of the heat and keeping surfaces moderately cool."
             else:
-                vibe, v_color, v_note = "OPTIMAL", "green", "Natural cooling is performing at peak efficiency."
+                vibe, v_color, v_note = "OPTIMAL", "green", "Natural cooling is offsetting all Urban Heat Island Effect. This area may significantly cooler than the 'Official' station temperature reported on the news."
 
             # --- UI RENDERING ---
             st.divider()
