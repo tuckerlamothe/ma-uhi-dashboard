@@ -377,11 +377,10 @@ if active_geom:
             st.divider()
             col_a, col_b = st.columns([2, 1])
             
-with col_a:
+            with col_a:
                 st.markdown(f"### Local Heat Vulnerability: :{v_color}[{vibe}]")
                 st.caption(f"**Diagnosis:** {v_note}")
                 
-                # This line was too far left, causing the lines below to look like "unexpected indents"
                 st.info("**Why two temps?** Predicted Air Temp measures heated molecules in the atmosphere. Real Feel measures the direct radiant heat hitting your skin from hot pavement.")
                 
                 comparison_df = pd.DataFrame({
@@ -394,16 +393,12 @@ with col_a:
 
             with col_b:
                 st.subheader("Simulation Results")
-                
-                # Absolute Air Temperature Metric
                 st.metric(
                     label="Predicted Air Temp", 
                     value=f"{pred_air_c:.1f} °C | {to_f(pred_air_c):.1f} °F", 
                     delta=f"{air_diff_c:+.1f} °C | {delta_to_f(air_diff_c):+.1f} °F Change",
                     delta_color="inverse" 
                 )
-                
-                # Human Thermal Comfort Metric
                 st.metric(
                     label="Human 'Real Feel'", 
                     value=f"{sim_feel_c:.1f} °C | {to_f(sim_feel_c):.1f} °F", 
@@ -412,6 +407,7 @@ with col_a:
                 )
 
     except Exception as e:
+        st.error(f"Analysis Error: {e}")
         st.error(f"Analysis Error: {e}")
 else:
     st.info("💡 Draw a polygon on the map or select a town from the sidebar to analyze a specific neighborhood.")
