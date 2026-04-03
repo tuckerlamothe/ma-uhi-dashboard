@@ -432,7 +432,7 @@ st.markdown(
     help="Visit my LinkedIn profile"
 st.sidebar.markdown("---")
 st.sidebar.markdown(
-    "[Created by Tucker Lamothe](https://www.linkedin.com/in/tucker-lamothe-313472389/)"
+    "[Created by Tucker Lamothe](https://www.linkedin.com/in/tucker-lamothe-313472389/)")
 )
 
 
