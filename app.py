@@ -245,6 +245,17 @@ map_key = f"uhi_map_{st.session_state.map_id}"
 m = geemap.Map(center=st.session_state.map_center, zoom=st.session_state.map_zoom)
 m.add_basemap("HYBRID")
 
+# 2. ADD THE FAINT LABELS LAYER
+# We use the CartoDB Positron Labels layer (transparent + text only)
+folium.TileLayer(
+    tiles='https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png',
+    attr='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    name='City & Street Labels',
+    overlay=True,  # This makes it sit ON TOP of the satellite layer
+    control=True,
+    opacity=0.6    # Make it "faint" as you requested
+).add_to(m)
+
 # Vis params (as you had them)
 vis_tree = {'min': 0, 'max': 100, 'palette': ['#ffffff', '#228B22']}
 vis_imp = {'min': 0, 'max': 100, 'palette': ['#ffffff', '#444444']}
