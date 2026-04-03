@@ -291,7 +291,7 @@ elif selected_town_geom:
 map_output = st_folium(
     m, 
     key=map_key, 
-    height=500, 
+    height=450, 
     width=None,
     use_container_width=True,
     returned_objects=["last_active_drawing"]
