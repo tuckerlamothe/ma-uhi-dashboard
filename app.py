@@ -361,27 +361,25 @@ if active_geom:
             
             feel_diff_c = sim_feel_c - curr_feel_c
 
-            # --- NEW HUMAN-FRIENDLY INDICATOR ---
-# We still use the math, but we hide the "score" and show a Level instead
-score = (res['imperv'] * 0.4) + ((0.4 - res['albedo']) * 100) - (res['tree'] * 0.4)
+# --- NEW HUMAN-FRIENDLY INDICATOR ---
+            score = (res['imperv'] * 0.4) + ((0.4 - res['albedo']) * 100) - (res['tree'] * 0.4)
 
-if score > 50:
-    vibe, v_color, v_note = "EXTREME", "red", "High pavement and low canopy create a 'Heat Trap'."
-elif score > 25:
-    vibe, v_color, v_note = "MODERATE", "orange", "Urban surfaces are absorbing significant solar heat."
-elif score > 10:
-    vibe, v_color, v_note = "LOW", "blue", "Vegetation and reflectivity are helping keep surfaces cool."
-else:
-    vibe, v_color, v_note = "OPTIMAL", "green", "Natural cooling is performing at peak efficiency."
+            if score > 50:
+                vibe, v_color, v_note = "EXTREME", "red", "High pavement and low canopy create a 'Heat Trap'."
+            elif score > 25:
+                vibe, v_color, v_note = "MODERATE", "orange", "Urban surfaces are absorbing significant solar heat."
+            elif score > 10:
+                vibe, v_color, v_note = "LOW", "blue", "Vegetation and reflectivity are helping keep surfaces cool."
+            else:
+                vibe, v_color, v_note = "OPTIMAL", "green", "Natural cooling is performing at peak efficiency."
 
-# --- UI RENDERING ---
-st.divider()
-col_a, col_b = st.columns([2, 1])
-
-with col_a:
-    # This replaces the subheader with a clear color-coded label
-    st.markdown(f"### Local Heat Vulnerability: :{v_color}[{vibe}]")
-    st.caption(f"**Diagnosis:** {v_note}")
+            # --- UI RENDERING ---
+            st.divider()
+            col_a, col_b = st.columns([2, 1])
+            
+            with col_a:
+                st.markdown(f"### Local Heat Vulnerability: :{v_color}[{vibe}]")
+                st.caption(f"**Diagnosis:** {v_note}")
     
     st.info("**Why two temps?** Predicted Air Temp measures heated molecules in the atmosphere. Real Feel measures the direct radiant heat hitting your skin from hot pavement.")
                 
