@@ -256,7 +256,7 @@ m.add_layer(towns.style(color='white', width=1, fillColor='00000000'), {}, 'Town
 # 2. ADD THE FAINT LABELS LAYER
 # We use the CartoDB Positron Labels layer (transparent + text only)
 folium.TileLayer(
-    tiles='https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png',
+    tiles='https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png',
     attr='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     name='City & Street Labels',
     overlay=True,  # This makes it sit ON TOP of the satellite layer
