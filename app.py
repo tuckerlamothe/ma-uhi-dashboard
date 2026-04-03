@@ -299,12 +299,14 @@ map_output = st_folium(
 
 st.markdown("""
     <style>
-    .block-container {
-        padding-top: 2rem;
-        padding-bottom: 0rem;
+    /* Target the iframe container specifically */
+    [data-testid="stHtml"] iframe {
+        display: block;
+        margin-bottom: -40px !important; /* Pulls the footer up */
     }
-    div.stVerticalBlock > div {
-        margin-bottom: -15px;
+    /* Hide the extra padding Streamlit adds to the bottom of blocks */
+    .stVerticalBlock {
+        gap: 0rem !important;
     }
     </style>
     """, unsafe_allow_html=True)
