@@ -384,7 +384,7 @@ if active_geom:
             elif score > 10:
                 vibe, v_color, v_note = "LOW", "blue", "The cooling effect of vegetation is helping buffer the worst of the heat and keeping surfaces' temperatures largely unchanged."
             else:
-                vibe, v_color, v_note = "OPTIMAL", "green", "Natural cooling is offsetting all Urban Heat Island Effect. This area may significantly cooler than the 'Official' station temperature reported on the news."
+                vibe, v_color, v_note = "OPTIMAL", "green", "Natural cooling is offsetting all Urban Heat Island Effect. This area may be significantly cooler than the 'Official' station temperature reported on the news."
 
             # --- UI RENDERING ---
             st.divider()
@@ -421,19 +421,16 @@ if active_geom:
 
     except Exception as e:
         st.error(f"Analysis Error: {e}")
-        st.error(f"Analysis Error: {e}")
 else:
     st.info("💡 Draw a polygon on the map or select a town from the sidebar to analyze a specific neighborhood.")
 
 # --- FOOTER ---
 st.divider()
-st.markdown(
-    "[Created by Tucker Lamothe](https://www.linkedin.com/in/tucker-lamothe-313472389/)", 
-    help="Visit my LinkedIn profile"
+st.markdown("[Created by Tucker Lamothe](https://www.linkedin.com/in/tucker-lamothe-313472389/)")
+
+# Sidebar Footer
 st.sidebar.markdown("---")
-st.sidebar.markdown(
-    "[Created by Tucker Lamothe](https://www.linkedin.com/in/tucker-lamothe-313472389/)")
-)
+st.sidebar.markdown("[Created by Tucker Lamothe](https://www.linkedin.com/in/tucker-lamothe-313472389/)")
 
 
 
