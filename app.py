@@ -47,6 +47,16 @@ else:
         ee.Authenticate()
         ee.Initialize(project=my_project)
 
+# 1. THE RESET LOGIC
+if st.sidebar.button("🗑️ Clear Map & Selections"):
+    st.session_state.saved_polygon = None
+    st.session_state.bounds = None
+    st.session_state.town_selector = "None (Explore/Draw Map)"
+    # INCREMENT THIS: It forces the map component to fully reset
+    st.session_state.map_id += 1 
+    st.session_state.show_reset_toast = True
+    st.rerun()
+
 # --- YOUR APP CONTENT STARTS HERE ---
 st.title("Massachusetts Urban Heat Island Dashboard")
 st.markdown("""
@@ -200,16 +210,6 @@ sim_alb = st.sidebar.number_input(
     step=0.01,
     help="Ability of surfaces to reflect solar radiation. Standard city avg is ~0.15."
 )
-
-# 1. THE RESET LOGIC
-if st.sidebar.button("🗑️ Clear Map & Selections"):
-    st.session_state.saved_polygon = None
-    st.session_state.bounds = None
-    st.session_state.town_selector = "None (Explore/Draw Map)"
-    # INCREMENT THIS: It forces the map component to fully reset
-    st.session_state.map_id += 1 
-    st.session_state.show_reset_toast = True
-    st.rerun()
 
 # 2. THE TOAST (Optional placement)
 if st.session_state.get('show_reset_toast'):
