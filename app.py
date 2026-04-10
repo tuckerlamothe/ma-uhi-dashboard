@@ -57,6 +57,27 @@ if st.sidebar.button("🗑️ Clear Map & Selections"):
     st.session_state.show_reset_toast = True
     st.rerun()
 
+st.sidebar.markdown("---")
+
+# 3. NOW DRAW THE SELECTBOX
+@st.cache_data
+def get_clean_town_list():
+    return towns.distinct('TOWN').aggregate_array('TOWN').sort().getInfo()
+
+selected_town = st.sidebar.selectbox(
+    "Select a Town to Focus", 
+    ["None (Explore/Draw Map)"] + get_clean_town_list(),
+    key="town_selector"
+)
+
+if selected_town != "None (Explore/Draw Map)" and st.session_state.saved_polygon is not None:
+    st.sidebar.warning("💡 **Multi-Selection Active**")
+    st.sidebar.info(
+        "You are viewing a custom polygon over a town boundary. "
+        "The analysis below is prioritizing your **custom drawing**. "
+        "To go back to full town analysis, please use the **Clear Map** button."
+    )
+
 # --- YOUR APP CONTENT STARTS HERE ---
 st.title("Massachusetts Urban Heat Island Dashboard")
 st.markdown("""
@@ -215,27 +236,6 @@ sim_alb = st.sidebar.number_input(
 if st.session_state.get('show_reset_toast'):
     st.toast("Success! You can now select a new town or polygon!", icon="✅")
     del st.session_state.show_reset_toast
-
-st.sidebar.markdown("---")
-
-# 3. NOW DRAW THE SELECTBOX
-@st.cache_data
-def get_clean_town_list():
-    return towns.distinct('TOWN').aggregate_array('TOWN').sort().getInfo()
-
-selected_town = st.sidebar.selectbox(
-    "Select a Town to Focus", 
-    ["None (Explore/Draw Map)"] + get_clean_town_list(),
-    key="town_selector"
-)
-
-if selected_town != "None (Explore/Draw Map)" and st.session_state.saved_polygon is not None:
-    st.sidebar.warning("💡 **Multi-Selection Active**")
-    st.sidebar.info(
-        "You are viewing a custom polygon over a town boundary. "
-        "The analysis below is prioritizing your **custom drawing**. "
-        "To go back to full town analysis, please use the **Clear Map** button."
-    )
 
 # 6. MAP INTERFACE (SILENT MODE)
 # ---------------------------------------------------------
