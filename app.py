@@ -57,8 +57,6 @@ if st.sidebar.button("🗑️ Clear Map & Selections"):
     st.session_state.show_reset_toast = True
     st.rerun()
 
-st.sidebar.markdown("---")
-
 # 3. NOW DRAW THE SELECTBOX
 @st.cache_data
 def get_clean_town_list():
@@ -77,6 +75,8 @@ if selected_town != "None (Explore/Draw Map)" and st.session_state.saved_polygon
         "The analysis below is prioritizing your **custom drawing**. "
         "To go back to full town analysis, please use the **Clear Map** button."
     )
+
+st.sidebar.markdown("---")
 
 # --- YOUR APP CONTENT STARTS HERE ---
 st.title("Massachusetts Urban Heat Island Dashboard")
