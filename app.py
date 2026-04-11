@@ -47,6 +47,52 @@ else:
         ee.Authenticate()
         ee.Initialize(project=my_project)
 
+# DATASETS & CONSTANTS
+# ---------------------------------------------------------
+# Load Town Boundaries asset
+towns = ee.FeatureCollection("projects/massachusetts-uhi/assets/ma_townboundaries")
+
+# Load Land Cover Data (ESA WorldCover 10m)
+esa_landcover = ee.ImageCollection("ESA/WorldCover/v100").first()
+tree_canopy = esa_landcover.eq(10).multiply(100).rename('tree').selfMask()
+
+# Load NLCD Impervious Surface (2021 Release)
+impervious = (ee.ImageCollection("USGS/NLCD_RELEASES/2021_REL/NLCD")
+              .filter(ee.Filter.eq('system:index', '2021'))
+              .first()
+              .select(['impervious'], ['imperv'])
+              .unmask(0).selfMask())
+
+# Landsat 8 for Albedo Calculation (Summer median to avoid snow/cloud interference)
+l8_col = (ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
+          .filterDate('2023-06-01', '2023-09-30')
+          .filter(ee.Filter.lt('CLOUD_COVER', 20)))
+
+# Regional Baselines (MA State Averages for context)
+STATE_AVG = {'tree': 45.0, 'imperv': 15.0, 'albedo': 0.150}
+
+# --- SCIENTIFIC COEFFICIENTS (IMPACT PER UNIT CHANGE) ---
+# Ambient Air Impact (Celsius change per 1% cover or 0.1 Albedo)
+A_TREE = 0.05  
+A_GROOF = 0.04   # Green roofs are ~80% as effective as trees for ambient air
+A_IMP = 0.07   
+A_ALB = 15.0   
+
+# Human Comfort Impact (Mean Radiant Temperature / "Real Feel")
+MRT_IMP = 0.12   # Radiant heat "penalty" from pavement
+MRT_TREE = 0.15  # Radiant relief from direct canopy shade
+MRT_GROOF = 0.02 # Minimal radiant relief for pedestrians (no shade)
+MRT_ALB = 5.0    # Ambient cooling from reflective urban membranes
+
+# Helper Functions for Unit Conversion
+def to_f(c):
+    """Converts absolute Celsius to Fahrenheit."""
+    return (c * 9/5) + 32
+
+def delta_to_f(c_delta):
+    """Converts a temperature CHANGE (delta) from Celsius to Fahrenheit."""
+    return c_delta * 1.8
+
 # 1. THE RESET LOGIC
 if st.sidebar.button("🗑️ Clear Map & Selections"):
     st.session_state.saved_polygon = None
@@ -99,51 +145,6 @@ if 'bounds' not in st.session_state:
 if 'map_id' not in st.session_state:
     st.session_state.map_id = 0
 
-# 3. DATASETS & CONSTANTS
-# ---------------------------------------------------------
-# Load Town Boundaries asset
-towns = ee.FeatureCollection("projects/massachusetts-uhi/assets/ma_townboundaries")
-
-# Load Land Cover Data (ESA WorldCover 10m)
-esa_landcover = ee.ImageCollection("ESA/WorldCover/v100").first()
-tree_canopy = esa_landcover.eq(10).multiply(100).rename('tree').selfMask()
-
-# Load NLCD Impervious Surface (2021 Release)
-impervious = (ee.ImageCollection("USGS/NLCD_RELEASES/2021_REL/NLCD")
-              .filter(ee.Filter.eq('system:index', '2021'))
-              .first()
-              .select(['impervious'], ['imperv'])
-              .unmask(0).selfMask())
-
-# Landsat 8 for Albedo Calculation (Summer median to avoid snow/cloud interference)
-l8_col = (ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
-          .filterDate('2023-06-01', '2023-09-30')
-          .filter(ee.Filter.lt('CLOUD_COVER', 20)))
-
-# Regional Baselines (MA State Averages for context)
-STATE_AVG = {'tree': 45.0, 'imperv': 15.0, 'albedo': 0.150}
-
-# --- SCIENTIFIC COEFFICIENTS (IMPACT PER UNIT CHANGE) ---
-# Ambient Air Impact (Celsius change per 1% cover or 0.1 Albedo)
-A_TREE = 0.05  
-A_GROOF = 0.04   # Green roofs are ~80% as effective as trees for ambient air
-A_IMP = 0.07   
-A_ALB = 15.0   
-
-# Human Comfort Impact (Mean Radiant Temperature / "Real Feel")
-MRT_IMP = 0.12   # Radiant heat "penalty" from pavement
-MRT_TREE = 0.15  # Radiant relief from direct canopy shade
-MRT_GROOF = 0.02 # Minimal radiant relief for pedestrians (no shade)
-MRT_ALB = 5.0    # Ambient cooling from reflective urban membranes
-
-# Helper Functions for Unit Conversion
-def to_f(c):
-    """Converts absolute Celsius to Fahrenheit."""
-    return (c * 9/5) + 32
-
-def delta_to_f(c_delta):
-    """Converts a temperature CHANGE (delta) from Celsius to Fahrenheit."""
-    return c_delta * 1.8
 
 # 4. ANALYSIS LOGIC
 # ---------------------------------------------------------
