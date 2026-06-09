@@ -128,7 +128,7 @@ st.sidebar.markdown("---")
 st.title("Massachusetts Urban Heat Island Dashboard")
 st.markdown("""
 This dashboard allows you to analyze the **Urban Heat Island (UHI)** effect across Massachusetts. 
-Select a town or draw a custom area to see current conditions, then use the **Simulation Lab** to model how land-use changes impact local air temperature and human thermal comfort.
+Select a town or draw a custom area to see present-day conditions, then use the **Simulation Lab** to model how land-use changes impact local air temperature and human thermal comfort.
 """)
 
 # Replace your current session state block in Section 2 with this:
