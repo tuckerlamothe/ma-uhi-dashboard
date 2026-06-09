@@ -142,7 +142,7 @@ Select a town or draw a custom area to see present-day conditions, then use the 
 
 st.markdown(
     "**What is an Urban Heat Island?**", 
-    help="An Urban Heat Island (UHI) occurs when cities replace natural land cover with dense concentrations of pavement, buildings, and other surfaces that absorb and retain heat. This causes urban areas to experience significantly higher temperatures than nearby rural areas."
+    help="The “Urban Heat Island Effect” describes how cities are often comparatively hotter than surrounding rural landscapes due to characteristics of urban design. When concrete replaces trees and darker asphalt absorbs and radiates more sunlight, heat risk rises, especially in the summertime."
 )
 
 # Replace your current session state block in Section 2 with this:
