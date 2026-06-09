@@ -427,11 +427,11 @@ else:
 
 # --- FOOTER ---
 st.divider()
-st.markdown("[Created by Tucker Lamothe](www.linkedin.com/in/tucker-lamothe213)")
+st.markdown("[Created by Tucker Lamothe](https://www.linkedin.com/in/tucker-lamothe213/)")
 
 # Sidebar Footer
 st.sidebar.markdown("---")
-st.sidebar.markdown("[Created by Tucker Lamothe](www.linkedin.com/in/tucker-lamothe213)")
+st.sidebar.markdown("[Created by Tucker Lamothe](https://www.linkedin.com/in/tucker-lamothe213/)")
 
 
 
