@@ -246,6 +246,23 @@ map_key = f"uhi_map_{st.session_state.map_id}"
 m = geemap.Map(center=st.session_state.map_center, zoom=st.session_state.map_zoom)
 m.add_basemap("HYBRID")
 
+st.markdown("### 🗺️ Interactive Microclimate Map")
+st.caption("💡 **Tip:** Once you click your first point to close the polygon loop, **click anywhere outside the shape** on the map to trigger the satellite analysis.")
+
+# --- INJECT CUSTOM CURSOR TEXT DIRECTLY INTO THE MAP OBJECT ---
+custom_tooltips = """
+<script>
+    // Poll until the Leaflet drawing localizations are available
+    var checkL = setInterval(function() {
+        if (window.L && window.L.drawLocal) {
+            L.drawLocal.draw.handlers.polygon.tooltip.end = 'Click outside the polygon to start analysis.';
+            clearInterval(checkL);
+        }
+    }, 100);
+</script>
+"""
+m.add_html(custom_tooltips)
+
 # Vis params (as you had them)
 vis_tree = {'min': 0, 'max': 100, 'palette': ['#ffffff', '#228B22']}
 vis_imp = {'min': 0, 'max': 100, 'palette': ['#ffffff', '#444444']}
