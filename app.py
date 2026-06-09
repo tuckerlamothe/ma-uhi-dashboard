@@ -249,7 +249,7 @@ m.add_basemap("HYBRID")
 st.markdown("### 🛰️ Urban Heat Island Mapping Tool")
 st.info(
     "📐 **How to Draw:** Find the pentagon *Draw a polygon* tool on the left side of the map. Click points to outline a neighborhood. "
-    "Once you click your first point to close the loop, **click anywhere outside the shape** to process the data."
+    "Once you click your first point to close the loop, **click anywhere outside the shape** to process the data. Check out below the map for analysis!"
 )
 
 # --- INJECT CUSTOM CURSOR TEXT DIRECTLY INTO THE MAP OBJECT ---
