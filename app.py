@@ -141,7 +141,10 @@ Select a town or draw a custom area to see present-day conditions, then use the 
 """)
 
 st.markdown(
-    '<span title="An Urban Heat Island (UHI) occurs when cities replace natural vegetation with pavement, buildings, and roads. These surfaces absorb solar radiation and radiate heat back into the air, making cities much hotter than surrounding rural spaces.">ℹ️ What is an Urban Heat Island?</span>', 
+    '<div title="An Urban Heat Island (UHI) occurs when cities replace natural vegetation with pavement, buildings, and roads. These surfaces absorb solar radiation and radiate heat back into the air, making cities much hotter than surrounding rural spaces."'
+    ' style="cursor: help; inline-size: max-content; font-weight: 500; margin-bottom: 15px;">'
+    'ℹ️ What is an Urban Heat Island?'
+    '</div>', 
     unsafe_allow_html=True
 )
 
