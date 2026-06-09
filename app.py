@@ -203,32 +203,38 @@ st.sidebar.caption(f"Standardized Baseline: **{to_f(sim_temp):.1f}°F**")
 # B. VEGETATION STRATEGY (Trees vs Green Roofs)
 st.sidebar.markdown("---")
 st.sidebar.subheader("Vegetation Strategy")
-total_veg_target = st.sidebar.number_input(
-    "Total Vegetation Goal (%)", 
+
+# 1. Primary input is now the Ground Tree Canopy Goal
+sim_tree = st.sidebar.number_input(
+    "Ground Tree Canopy (%)", 
     min_value=0.0, max_value=100.0, 
     value=float(st.session_state.current_data['tree']),
-    help="Target for total vegetative cover (Trees + Rooftops)."
+    help="Ground-level tree canopy shading."
 )
 
+# 2. Checkbox for Green Roof allocation
 use_green_roofs = st.sidebar.checkbox("Allocate portion to Green Roofs?")
 sim_groof = 0.0
+
 if use_green_roofs:
+    # Max value is capped at whatever space is left over from your trees
+    max_allowable_roofs = 100.0 - sim_tree
     sim_groof = st.sidebar.number_input(
         "Green Roof Allocation (%)", 
-        min_value=0.0, max_value=total_veg_target, 
+        min_value=0.0, max_value=max_allowable_roofs, 
         value=0.0,
-        help="Percentage of the total area to be used as green roofs."
+        help="Percentage of the area to be supplemented with green roofs."
     )
 
-# Tree canopy is the ground-level remainder of the goal
-sim_tree = total_veg_target - sim_groof
-st.sidebar.write(f"Resulting Ground Canopy: **{sim_tree:.1f}%**")
+# 3. Calculate Total Vegetation by adding them together
+total_veg_target = sim_tree + sim_groof
+st.sidebar.write(f"Resulting Total Vegetation: **{total_veg_target:.1f}%**")
 
 # C. SURFACE STRATEGY (Pavement and Albedo)
 st.sidebar.markdown("---")
 st.sidebar.subheader("Surface Strategy")
 sim_imp = st.sidebar.number_input(
-    "Proposed Pavement Cover (%)", 
+    "Pavement Cover (%)", 
     min_value=0.0, max_value=100.0, 
     value=float(st.session_state.current_data['imperv']),
     help="Percentage of roads, parking lots, and building footprints."
