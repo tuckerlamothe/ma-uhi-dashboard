@@ -246,8 +246,11 @@ map_key = f"uhi_map_{st.session_state.map_id}"
 m = geemap.Map(center=st.session_state.map_center, zoom=st.session_state.map_zoom)
 m.add_basemap("HYBRID")
 
-st.markdown("### 🗺️ Interactive Microclimate Map")
-st.caption("💡 **Tip:** Once you click your first point to close the polygon loop, **click anywhere outside the shape** on the map to trigger the satellite analysis.")
+st.markdown("### 🛰️ Urban Heat Island Mapping Tool")
+st.info(
+    "📐 **How to Draw:** Click points to outline your neighborhood. "
+    "Once you click your first point to close the loop, **click anywhere outside the shape** to process the data."
+)
 
 # --- INJECT CUSTOM CURSOR TEXT DIRECTLY INTO THE MAP OBJECT ---
 custom_tooltips = """
@@ -304,12 +307,6 @@ if st.session_state.bounds:
 elif selected_town_geom:
     # If no polygon is drawn but a town is selected (Amherst), focus there
     m.center_object(selected_town_geom, 12)
-
-st.markdown("### 🛰️ Urban Heat Island Mapping Tool")
-st.info(
-    "📐 **How to Draw:** Click points to outline your neighborhood. "
-    "Once you click your first point to close the loop, **click anywhere outside the shape** to process the data."
-)
 
 # Render the Map - Force immediate state packaging
 map_output = st_folium(
