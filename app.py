@@ -295,7 +295,7 @@ map_output = st_folium(
     height=450, 
     width=None,
     use_container_width=True,
-    returned_objects=["last_active_drawing"]
+    returned_objects=["all_drawings", "last_active_drawing"]
 )
 
 st.markdown("""
