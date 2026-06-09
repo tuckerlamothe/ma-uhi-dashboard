@@ -334,7 +334,7 @@ if map_output:
     if poly_geom:
         # Check if this is a valid Polygon and has actual coordinates
         coords = poly_geom.get('coordinates', [])
-        if coords and len(coords)[0] >= 3: # Ensures it's a closed loop of at least a triangle
+        if coords and len(coords[0]) >= 3: # Ensures it's a closed loop of at least a triangle
             
             if st.session_state.saved_polygon != poly_geom:
                 st.session_state.saved_polygon = poly_geom
