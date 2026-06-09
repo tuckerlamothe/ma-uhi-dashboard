@@ -440,7 +440,7 @@ if active_geom:
             with col_b:
                 st.subheader("Simulation Results")
                 st.markdown(
-                    '<p style="font-size: 14px; color: rgba(224,224,224,0.6); margin-top: -10px; margin-bottom: 20px;">'
+                    '<p style="font-size: 14px; color: rgba(192,192,192,0.6); margin-top: -10px; margin-bottom: 20px;">'
                     'What could things be like?'
                     '</p>', 
                     unsafe_allow_html=True
