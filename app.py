@@ -137,7 +137,7 @@ st.markdown(
 )
 st.markdown("""
 This dashboard allows you to analyze the **Urban Heat Island (UHI)** effect across Massachusetts. 
-Select a town or draw a custom area to see present-day conditions, then use the **Simulation Lab** to model how land-use changes impact local air temperature and human thermal comfort.
+Select a town or draw a custom area to see present-day conditions, then use the **Simulation Lab** on the left sidebar to model how land-use changes impact local air temperature and human thermal comfort.
 """)
 
 # Replace your current session state block in Section 2 with this:
@@ -258,7 +258,7 @@ m.add_basemap("HYBRID")
 st.markdown("### 🛰️ Urban Heat Island Mapping Tool")
 st.info(
     "📐 **How to Draw:** Find the pentagon *Draw a polygon* tool on the left side of the map. Click points to outline a neighborhood. "
-    "Once you click your first point to close the loop, **click anywhere outside the shape** to process the data. Check out below the map for analysis!"
+    "Once you click your first point to close the loop, **click anywhere outside the shape** to process the data. Check out the analysis shown below the map!"
 )
 
 # --- INJECT CUSTOM CURSOR TEXT DIRECTLY INTO THE MAP OBJECT ---
