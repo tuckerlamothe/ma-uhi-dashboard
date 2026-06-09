@@ -125,7 +125,16 @@ if selected_town != "None (Explore/Draw Map)" and st.session_state.saved_polygon
 st.sidebar.markdown("---")
 
 # --- YOUR APP CONTENT STARTS HERE ---
-st.title("Massachusetts Urban Heat Island Dashboard")
+# --- TITLE WITH BETA BADGE ---
+st.markdown(
+    '<h1 style="margin-bottom: 0px;">'
+    'Massachusetts Urban Heat Island Dashboard '
+    '<span style="font-size: 16px; color: rgba(192,192,192,0.6); vertical-align: super; font-weight: normal; margin-left: 5px;">'
+    'BETA'
+    '</span>'
+    '</h1>', 
+    unsafe_allow_html=True
+)
 st.markdown("""
 This dashboard allows you to analyze the **Urban Heat Island (UHI)** effect across Massachusetts. 
 Select a town or draw a custom area to see present-day conditions, then use the **Simulation Lab** to model how land-use changes impact local air temperature and human thermal comfort.
