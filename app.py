@@ -142,7 +142,7 @@ Select a town or draw a custom area to see present-day conditions, then use the 
 
 st.markdown(
     "**What is an Urban Heat Island?**", 
-    help="The “Urban Heat Island Effect” describes how cities are often comparatively hotter than surrounding rural landscapes due to characteristics of urban design. When concrete replaces trees and darker asphalt absorbs and radiates more sunlight, heat risk rises, especially in the summertime."
+    help="The “Urban Heat Island” effect describes how cities are often comparatively hotter than surrounding rural landscapes due to characteristics of urban design. When concrete replaces trees and darker asphalt absorbs and radiates more sunlight, heat risk rises, especially in the summertime."
 )
 
 # Replace your current session state block in Section 2 with this:
