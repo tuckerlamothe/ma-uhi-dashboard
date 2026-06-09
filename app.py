@@ -140,6 +140,11 @@ This dashboard allows you to analyze the **Urban Heat Island (UHI)** effect acro
 Select a town or draw a custom area to see present-day conditions, then use the **Simulation Lab** on the left sidebar to model how land-use changes impact local air temperature and human thermal comfort.
 """)
 
+st.markdown(
+    '<span title="An Urban Heat Island (UHI) occurs when cities replace natural vegetation with pavement, buildings, and roads. These surfaces absorb solar radiation and radiate heat back into the air, making cities much hotter than surrounding rural spaces.">ℹ️ What is an Urban Heat Island?</span>', 
+    unsafe_allow_html=True
+)
+
 # Replace your current session state block in Section 2 with this:
 if 'map_center' not in st.session_state:
     st.session_state.map_center = [42.3, -71.8]
