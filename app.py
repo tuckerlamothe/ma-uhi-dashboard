@@ -288,14 +288,15 @@ elif selected_town_geom:
     # If no polygon is drawn but a town is selected (Amherst), focus there
     m.center_object(selected_town_geom, 12)
 
-# Render the Map
+# Render the Map - Force immediate state packaging
 map_output = st_folium(
     m, 
     key=map_key, 
     height=450, 
     width=None,
     use_container_width=True,
-    returned_objects=["all_drawings", "last_active_drawing"]
+    # Adding 'all_drawings' forces the component to bridge data on drawing completion events
+    returned_objects=["last_active_drawing", "all_drawings"] 
 )
 
 st.markdown("""
@@ -319,30 +320,33 @@ elif selected_town != "None (Explore/Draw Map)":
     st.sidebar.markdown("### 🛰️ Data Status")
     st.sidebar.info(f"🏙️ **Town Selected.** Analyzing {selected_town}...")
     
-# --- THE PRECISION CATCHER (ROBUST MULTI-OBJECT VERSION) ---
+# --- THE PRECISION CATCHER (IMMEDIATE GEOMETRY DETECTOR) ---
 if map_output:
     poly_geom = None
     
-    # Priority 1: Check if there's a fresh active drawing payload
-    if map_output.get("last_active_drawing"):
+    # Check if a drawing has completed its structural geometry loop
+    if map_output.get("last_active_drawing") and "geometry" in map_output["last_active_drawing"]:
         poly_geom = map_output["last_active_drawing"]["geometry"]
-    
-    # Priority 2: Fallback to the latest item in all_drawings if active drawing missed the event hook
     elif map_output.get("all_drawings") and len(map_output["all_drawings"]) > 0:
-        poly_geom = map_output["all_drawings"][-1]["geometry"]
+        # Snatch the last closed geometry from the array
+        poly_geom = map_output["all_drawings"][-1].get("geometry")
 
-    # If we successfully extracted a geometry, check if it's new
-    if poly_geom and st.session_state.saved_polygon != poly_geom:
-        st.session_state.saved_polygon = poly_geom
-        
-        # Calculate bounds for zooming
-        all_coords = poly_geom['coordinates'][0]
-        lats = [c[1] for c in all_coords]
-        lngs = [c[0] for c in all_coords]
-        st.session_state.bounds = [[min(lats), min(lngs)], [max(lats), max(lngs)]]
-        
-        # Instantly break out and rerun the calculations
-        st.rerun()
+    if poly_geom:
+        # Check if this is a valid Polygon and has actual coordinates
+        coords = poly_geom.get('coordinates', [])
+        if coords and len(coords)[0] >= 3: # Ensures it's a closed loop of at least a triangle
+            
+            if st.session_state.saved_polygon != poly_geom:
+                st.session_state.saved_polygon = poly_geom
+                
+                # Calculate bounds for zooming
+                all_coords = coords[0]
+                lats = [c[1] for c in all_coords]
+                lngs = [c[0] for c in all_coords]
+                st.session_state.bounds = [[min(lats), min(lngs)], [max(lats), max(lngs)]]
+                
+                # Fire instant rerun the millisecond the coordinates match a closed shape
+                st.rerun()
 
 # 7. RESULTS & CALCULATIONS
 # ---------------------------------------------------------
