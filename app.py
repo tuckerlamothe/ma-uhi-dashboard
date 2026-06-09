@@ -319,12 +319,20 @@ elif selected_town != "None (Explore/Draw Map)":
     st.sidebar.markdown("### 🛰️ Data Status")
     st.sidebar.info(f"🏙️ **Town Selected.** Analyzing {selected_town}...")
     
-# --- THE PRECISION CATCHER (MOVED HERE) ---
-# We check the map_output directly for new drawings
-if map_output and map_output.get("last_active_drawing"):
-    poly_geom = map_output["last_active_drawing"]["geometry"]
+# --- THE PRECISION CATCHER (ROBUST MULTI-OBJECT VERSION) ---
+if map_output:
+    poly_geom = None
     
-    if st.session_state.saved_polygon != poly_geom:
+    # Priority 1: Check if there's a fresh active drawing payload
+    if map_output.get("last_active_drawing"):
+        poly_geom = map_output["last_active_drawing"]["geometry"]
+    
+    # Priority 2: Fallback to the latest item in all_drawings if active drawing missed the event hook
+    elif map_output.get("all_drawings") and len(map_output["all_drawings"]) > 0:
+        poly_geom = map_output["all_drawings"][-1]["geometry"]
+
+    # If we successfully extracted a geometry, check if it's new
+    if poly_geom and st.session_state.saved_polygon != poly_geom:
         st.session_state.saved_polygon = poly_geom
         
         # Calculate bounds for zooming
@@ -333,7 +341,7 @@ if map_output and map_output.get("last_active_drawing"):
         lngs = [c[0] for c in all_coords]
         st.session_state.bounds = [[min(lats), min(lngs)], [max(lats), max(lngs)]]
         
-        # Refresh to trigger Section 7 analysis
+        # Instantly break out and rerun the calculations
         st.rerun()
 
 # 7. RESULTS & CALCULATIONS
