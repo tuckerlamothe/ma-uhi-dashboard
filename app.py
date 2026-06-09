@@ -180,7 +180,7 @@ def get_uhi_metrics(geometry):
 
 # 5. SIDEBAR & SIMULATION CONTROLS
 # ---------------------------------------------------------
-st.sidebar.header("Simulation Lab")
+st.sidebar.header("Simulation Lab", help="What changes do you want to see happen? Tweak the tree canopy %, total pavement cover, and albedo, and oberve how the temperature shifts.")
 
 # A. BASELINE INPUT (The Weather Station "Neutral" Temp)
 sim_temp = st.sidebar.number_input(
