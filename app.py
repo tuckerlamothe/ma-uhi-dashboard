@@ -439,6 +439,12 @@ if active_geom:
 
             with col_b:
                 st.subheader("Simulation Results")
+                st.markdown(
+                    '<p style="font-size: 14px; color: rgba(255,255,255,0.6); margin-top: -10px; margin-bottom: 20px;">'
+                    'What could things be like?'
+                    '</p>', 
+                    unsafe_allow_html=True
+                )
                 st.metric(
                     label="Predicted Air Temp", 
                     value=f"{pred_air_c:.1f} °C | {to_f(pred_air_c):.1f} °F", 
