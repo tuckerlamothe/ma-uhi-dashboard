@@ -438,8 +438,7 @@ if active_geom:
                 st.table(comparison_df)
 
             with col_b:
-                st.subheader("Simulation Results")
-                help="See left side menu for simulation options."
+                st.subheader("Simulation Results", help="See left side menu for simulation options.")
                 st.markdown(
                     '<p style="font-size: 14px; color: rgba(192,192,192,0.6); margin-top: -10px; margin-bottom: 20px;">'
                     'What could things be like?'
