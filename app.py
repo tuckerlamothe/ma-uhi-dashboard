@@ -305,6 +305,12 @@ elif selected_town_geom:
     # If no polygon is drawn but a town is selected (Amherst), focus there
     m.center_object(selected_town_geom, 12)
 
+st.markdown("### 🛰️ Urban Heat Island Mapping Tool")
+st.info(
+    "📐 **How to Draw:** Click points to outline your neighborhood. "
+    "Once you click your first point to close the loop, **click anywhere outside the shape** to process the data."
+)
+
 # Render the Map - Force immediate state packaging
 map_output = st_folium(
     m, 
