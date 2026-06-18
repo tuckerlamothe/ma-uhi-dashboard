@@ -354,10 +354,10 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 if st.session_state.saved_polygon:
-    st.sidebar.markdown("### 🛰️ Data Status")
+    st.sidebar.markdown("### Data Status")
     st.sidebar.success("✨ **Polygon Detected.** Analyzing custom neighborhood...")
 elif selected_town != "None (Explore/Draw Map)":
-    st.sidebar.markdown("### 🛰️ Data Status")
+    st.sidebar.markdown("### Data Status")
     st.sidebar.info(f"🏙️ **Town Selected.** Analyzing {selected_town}...")
     
 # --- THE PRECISION CATCHER (IMMEDIATE GEOMETRY DETECTOR) ---
