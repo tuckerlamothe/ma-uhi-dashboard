@@ -15,15 +15,12 @@ st.divider()
 
 # Massive text sections with ample space
 st.markdown("### 1. Ambient Air Impact Coefficients (Per unit change)")
-st.write(
-    "$A_{IMP}$ = 0.07 Impervious surface"
-    "$A_{TREE}$ = 0.05 Tree canopy"
-    "$A_{GROOF}$ = 0.04 Green roofs"
-    "$A_{ALB}$ = 15.0 Albedo"
-    "Long-form analysis text goes here. You can reference specific urban forestry papers, "
-    "thermal imaging metrics, and ambient temperature modeling methodologies without "
-    "worrying about crowding out your map interfaces."
-)
+st.markdown("""
+    $A_{IMP}$ = 0.07 Impervious surface  
+    $A_{TREE}$ = 0.05 Tree canopy  
+    $A_{GROOF}$ = 0.04 Green roofs  
+    $A_{ALB}$ = 15.0 Albedo  
+    """)
 
 st.markdown("### 2. Environmental Justice & Microclimate Vulnerability")
 st.write(
