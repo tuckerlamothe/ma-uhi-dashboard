@@ -23,9 +23,9 @@ st.markdown("""
     Albedo | $A_{ALB}$ = 15.0  
     """)
 
-st.markdown("### 2. Human "Real Feel" Formula (Mean Radiant Temperature)")
+st.markdown("""### 2. Human "Real Feel" Formula (Mean Radiant Temperature)""")
             
-st.markdown("### 3. Environmental Justice & Microclimate Vulnerability")
+st.markdown("""### 3. Environmental Justice & Microclimate Vulnerability""")
 st.write(
     "Document the studies regarding neighborhood-sized microclimates, historic redlining trends "
     "in Massachusetts, and the socio-economic disparities linked to surface albedo and tree cover distribution."
