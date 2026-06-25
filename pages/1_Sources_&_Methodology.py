@@ -3,7 +3,7 @@ import streamlit as st
 # Set page config for a clean, dedicated layout
 st.set_page_config(layout="wide", page_title="MA UHI Dashboard - Sources")
 
-st.title("📚 Sources & Scientific Methodology")
+st.title("Sources & Scientific Methodology")
 st.subheader("Derivation of Urban Heat Island Coefficients")
 
 st.markdown("""
@@ -14,9 +14,13 @@ used to establish the microclimate coefficients driving our Simulation Lab.
 st.divider()
 
 # Massive text sections with ample space
-st.markdown("### 1. Ambient Air Impact Coefficients ($A_{TREE}$, $A_{IMP}$)")
+st.markdown("### 1. Ambient Air Impact Coefficients (Per unit change)")
 st.write(
-    "Long-form analysis text goes here. You can reference specific urban forestry papers, "
+    "$A_{IMP}$ = 0.07 Impervious surface"
+    "$A_{TREE}$ = 0.05 Tree canopy"
+    "$A_{GROOF}$ = 0.04 Green roofs"
+    "$A_{ALB}$ = 15.0 Albedo"
+    Long-form analysis text goes here. You can reference specific urban forestry papers, "
     "thermal imaging metrics, and ambient temperature modeling methodologies without "
     "worrying about crowding out your map interfaces."
 )
