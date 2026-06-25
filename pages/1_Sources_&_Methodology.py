@@ -20,7 +20,7 @@ st.write(
     "$A_{TREE}$ = 0.05 Tree canopy"
     "$A_{GROOF}$ = 0.04 Green roofs"
     "$A_{ALB}$ = 15.0 Albedo"
-    Long-form analysis text goes here. You can reference specific urban forestry papers, "
+    "Long-form analysis text goes here. You can reference specific urban forestry papers, "
     "thermal imaging metrics, and ambient temperature modeling methodologies without "
     "worrying about crowding out your map interfaces."
 )
