@@ -19,7 +19,7 @@ st.markdown("###### Air Impact = ((Impervious * $A_{IMP}$) - (Tree Canopy * $A_{
 st.markdown("*With a 35°C baseline of 0% impervious, 0% tree canopy, 0.15 albedo*")
 st.markdown("""
     **Impervious surface | $A_{IMP}$ = 0.07** For each percent more concrete/asphalt in a given area, the simulation adds 0.07°C.  
-    **Tree canopy | $A_{TREE}$ = 0.05** Tree canopy functions as the offset to higher temperatures, so in the above formula tree impact is **subtracted** from the total temp.
+    **Tree canopy | $A_{TREE}$ = 0.05** Tree canopy functions as the offset to higher temperatures, so the above formula **subtracts** tree impact from  total temp.  
     Green roofs | $A_{GROOF}$ = 0.04  
     Albedo | $A_{ALB}$ = 15.0  
     """)
