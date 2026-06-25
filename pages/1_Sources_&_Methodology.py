@@ -15,7 +15,7 @@ st.divider()
 
 # Massive text sections with ample space
 st.markdown("### 1. Ambient Air Impact Coefficients (Per unit change)")
-st.markdown("#### Air Impact = ((Impervious * $A_{IMP}$) - (Tree Canopy * $A_{TREE}$) - ([Albedo] - 0.15) * $A_{ALB}$)")
+st.markdown("##### Air Impact = ((Impervious * $A_{IMP}$) - (Tree Canopy * $A_{TREE}$) - ([Albedo] - 0.15) * $A_{ALB}$)")
 st.markdown("""
     **Impervious surface | $A_{IMP}$ = 0.07** For each percent more concrete/asphalt in a given area, the simulation adds 0.07°C or 0.126°F.  
     **Tree canopy | $A_{TREE}$ = 0.05** Tree canopy functions as the offset to higher temperatures, so 
