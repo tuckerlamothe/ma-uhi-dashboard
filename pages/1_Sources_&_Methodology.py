@@ -15,14 +15,17 @@ st.divider()
 
 # Massive text sections with ample space
 st.markdown("### 1. Ambient Air Impact Coefficients (Per unit change)")
+st.markdown("## Air Impact = ((Impervious * $A_{IMP}$) - (Tree Canopy * $A_{TREE}$) - ([Albedo] - 0.15) * $A_{ALB}$)
 st.markdown("""
-    **Impervious surface | $A_{IMP}$ = 0.07** For each percent more concrete/asphalt, the simulation adds 0.07°C or 0.126°F.  
-    **Tree canopy | $A_{TREE}$ = 0.05**  
+    **Impervious surface | $A_{IMP}$ = 0.07** For each percent more concrete/asphalt in a given area, the simulation adds 0.07°C or 0.126°F.  
+    **Tree canopy | $A_{TREE}$ = 0.05** Tree canopy functions as the offset to higher temperatures, so 
     Green roofs | $A_{GROOF}$ = 0.04  
     Albedo | $A_{ALB}$ = 15.0  
     """)
 
-st.markdown("### 2. Environmental Justice & Microclimate Vulnerability")
+st.markdown("### 2. Human "Real Feel" Formula (Mean Radiant Temperature)")
+            
+st.markdown("### 3. Environmental Justice & Microclimate Vulnerability")
 st.write(
     "Document the studies regarding neighborhood-sized microclimates, historic redlining trends "
     "in Massachusetts, and the socio-economic disparities linked to surface albedo and tree cover distribution."
