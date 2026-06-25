@@ -16,8 +16,8 @@ st.divider()
 # Massive text sections with ample space
 st.markdown("### 1. Ambient Air Impact Coefficients (Per unit change)")
 st.markdown("""
-    Impervious surface | $A_{IMP}$ = 0.07  
-    Tree canopy | $A_{TREE}$ = 0.05  
+    **Impervious surface | $A_{IMP}$ = 0.07** For each percent more concrete/asphalt, the simulation adds 0.07°C or 0.126°F.  
+    **Tree canopy | $A_{TREE}$ = 0.05**  
     Green roofs | $A_{GROOF}$ = 0.04  
     Albedo | $A_{ALB}$ = 15.0  
     """)
