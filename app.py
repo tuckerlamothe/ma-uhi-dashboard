@@ -73,10 +73,10 @@ STATE_AVG = {'tree': 45.0, 'imperv': 15.0, 'albedo': 0.150}
 
 # --- SCIENTIFIC COEFFICIENTS (IMPACT PER UNIT CHANGE) ---
 # Ambient Air Impact (Celsius change per 1% cover or 0.1 Albedo)
-A_TREE = 0.05  
-A_GROOF = 0.04   # Green roofs are ~80% as effective as trees for ambient air
-A_IMP = 0.07   
-A_ALB = 15.0   
+A_TREE = 0.01  
+A_GROOF = 0.003  
+A_IMP = 0.0075   
+A_ALB = 6.1   
 
 # Human Comfort Impact (Mean Radiant Temperature / "Real Feel")
 MRT_IMP = 0.12   # Radiant heat "penalty" from pavement
