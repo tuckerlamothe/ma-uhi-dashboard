@@ -22,13 +22,14 @@ st.markdown("""**Impervious surface | $A_{IMP}$ = 0.0075**
     """)
 st.markdown("[Resilient Cambridge Urban Heat Island Report](https://www.cambridgema.gov/-/media/files/cdd/climate/resilientcambridge/urbanheatislandtechnicalreport.pdf?)")
 st.divider()
+st.markdown("""
     **Tree canopy | $A_{TREE}$ = 0.01**  
     Tree canopy functions as the offset to higher temperatures, so the above formula **subtracts** tree impact from total temp.  
     **Green roofs | $A_{GROOF}$ = 0.003**  
     Green roofs introduce cooling on the rooftop level. While they are powerful with evapotranspiration and more reflective leaves, their soil traps and releases heat into the night.  
     **Albedo | $A_{ALB}$ = 6.1**  
     Albedo is measured on a scale of 0 to 1, or 0% to 100% of light absorbed. This coefficient highlights the 6.1°C range across the albedo scale.  
-
+    """)
 st.markdown("""### 2. Human "Real Feel" Formula (Mean Radiant Temperature)""")
             
 st.markdown("""### 3. Environmental Justice & Microclimate Vulnerability""")
