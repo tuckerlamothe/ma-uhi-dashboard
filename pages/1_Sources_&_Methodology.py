@@ -21,7 +21,7 @@ st.markdown("""**Impervious surface | $A_{IMP}$ = 0.0075**
     For each percent additional concrete/asphalt in a given area, the simulation adds 0.0075°C.
     """)
 st.markdown("[Resilient Cambridge Urban Heat Island Report](https://www.cambridgema.gov/-/media/files/cdd/climate/resilientcambridge/urbanheatislandtechnicalreport.pdf?)")
-st.divider()
+st.write("")
 st.markdown("""
     **Tree canopy | $A_{TREE}$ = 0.01**  
     Tree canopy functions as the offset to higher temperatures, so the above formula **subtracts** tree impact from total temp.  
