@@ -22,7 +22,7 @@ st.markdown("""**Impervious surface | $A_{IMP}$ = 0.0075**
     """)
 st.markdown(
     "[Resilient Cambridge Urban Heat Island Report](https://www.cambridgema.gov/-/media/files/cdd/climate/resilientcambridge/urbanheatislandtechnicalreport.pdf?), "
-    "[ nature.com Heat Exposure Reductions in Boston](https://www.nature.com/articles/s43247-025-02462-3)"
+    "[nature.com Heat Exposure Reductions in Boston](https://www.nature.com/articles/s43247-025-02462-3)"
 )
 st.markdown("*This Cambridge study identifies a -0.056°C/1% cooling rate <u>in an isolated region</u>. This impact was corroborated with the nature.com study and scaled down accordingly to represent the air temperature of the <u>whole</u> city. While impervious surface might make a small region warm, air movement dilutes that heating to be spread across the whole city.*", unsafe_allow_html=True)
 st.write("")
