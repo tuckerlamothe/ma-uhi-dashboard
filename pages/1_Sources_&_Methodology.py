@@ -21,6 +21,7 @@ st.markdown("""**Impervious surface | $A_{IMP}$ = 0.0075**
     For each percent additional concrete/asphalt in a given area, the simulation adds 0.0075°C.
     """)
 st.markdown(
+    "Sources:"
     "[Resilient Cambridge Urban Heat Island Report](https://www.cambridgema.gov/-/media/files/cdd/climate/resilientcambridge/urbanheatislandtechnicalreport.pdf?), "
     "[nature.com Heat Exposure Reductions in Boston](https://www.nature.com/articles/s43247-025-02462-3)"
 )
