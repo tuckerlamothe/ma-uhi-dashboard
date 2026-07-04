@@ -81,7 +81,7 @@ A_ALB = 6.1
 # Human Comfort Impact (Mean Radiant Temperature / "Real Feel")
 MRT_IMP = 0.12   # Radiant heat "penalty" from pavement
 MRT_TREE = 0.15  # Radiant relief from direct canopy shade
-MRT_GROOF = 0.02 # Minimal radiant relief for pedestrians (no shade)
+MRT_GROOF = 0.002 # Minimal radiant relief for pedestrians (no shade)
 MRT_ALB = 5.0    # Ambient cooling from reflective urban membranes
 
 # Helper Functions for Unit Conversion
