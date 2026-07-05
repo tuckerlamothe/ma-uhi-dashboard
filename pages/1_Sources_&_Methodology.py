@@ -39,6 +39,7 @@ st.markdown("""**Albedo | $A_{ALB}$ = 6.1**
     Albedo is measured on a scale of 0 to 1, or 0% to 100% of light absorbed. This coefficient highlights the 6.1°C range across the albedo scale.  
     """)
 st.markdown("""### 2. Human "Real Feel" Formula (Mean Radiant Temperature)""")
+
 st.markdown("""**Impervious surface | $MRT_{IMP}$ = 0.12**""")
 st.markdown(
     "Source: "
