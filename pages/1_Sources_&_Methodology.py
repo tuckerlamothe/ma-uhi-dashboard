@@ -45,7 +45,7 @@ st.markdown(
     "Source: "
     "[Resilient Cambridge Urban Heat Island Report](https://www.cambridgema.gov/-/media/files/cdd/climate/resilientcambridge/urbanheatislandtechnicalreport.pdf?)"
 )
-st.markdown("*Identifies the relationship between tree canopy and impervious surface that removing impervious surface has ~83% the cooling impact as adding an equal amount of tree canopy."
+st.markdown("*Identifies the relationship between tree canopy and impervious surface that removing impervious surface has ~83% the cooling impact as adding an equal amount of tree canopy.*")
 st.markdown("""**Tree canopy | $MRT_{TREE}$ = 0.15**  
     Tree canopy functions as the offset to higher temperatures, so the above formula **subtracts** tree impact from total temp.
     """)
