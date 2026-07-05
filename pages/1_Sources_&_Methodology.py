@@ -47,7 +47,7 @@ st.markdown(
     "Source: "
     "[Resilient Cambridge Urban Heat Island Report](https://www.cambridgema.gov/-/media/files/cdd/climate/resilientcambridge/urbanheatislandtechnicalreport.pdf?)"
 )
-st.markdown("*Identifies the relationship between tree canopy and impervious surface that removing impervious surface has ~83% the cooling impact as adding an equal amount of tree canopy.*")
+st.markdown("*Identifies the relationship between tree canopy and impervious surface that removing impervious surface has ~83% the cooling impact to humans as adding an equal area of tree canopy.*")
 st.markdown("""**Tree canopy | $MRT_{TREE}$ = 0.15**  
     Tree canopy functions as the offset to higher temperatures, so the above formula **subtracts** tree impact from total temp.
     """)
@@ -57,6 +57,7 @@ st.markdown(
     "[Resilient Cambridge Urban Heat Island Report](https://www.cambridgema.gov/-/media/files/cdd/climate/resilientcambridge/urbanheatislandtechnicalreport.pdf?) | "
     "[nature.com Heat Exposure Reductions in Boston](https://www.nature.com/articles/s43247-025-02462-3)"
 )
+st.markdown("*The BU paper notes an 11-25°C cooling impact on <u>surfaces</u> shaded by trees. This means that the longwave heat radiated by sidewalks and asphalt under trees is between 11-25°C cooler to the human body. Additionally, trees cool the localized air temperature for humans by up to 3-5°C, say nature.com and Cambridge, through higher albedo and <u>evapotranspiration</u>.*", unsafe_allow_html=True)
 st.write("")
 st.markdown("""**Green roofs | $MRT_{GROOF}$ = 0.002**  
     Green roofs introduce cooling on the rooftop level. While they are powerful with evapotranspiration and more reflective leaves, their soil traps and releases heat into the night.
