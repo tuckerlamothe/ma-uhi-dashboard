@@ -40,7 +40,7 @@ st.markdown("""**Albedo | $A_{ALB}$ = 6.1**
     """)
 st.markdown("""### 2. Human "Real Feel" Formula (Mean Radiant Temperature)""")
 
-st.markdown("""**Impervious surface | $MRT_{IMP}$ = 0.12**
+st.markdown("""**Impervious surface | $MRT_{IMP}$ = 0.12**  
     Since concrete both reflects the sun's shortwaves back at your body and also radiates longwaves as it absorbs and releases heat, removing impervious surface can have high cooling potential."
     """)
 st.markdown(
