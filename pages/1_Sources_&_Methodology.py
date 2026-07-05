@@ -16,7 +16,7 @@ st.divider()
 # Massive text sections with ample space
 st.markdown("### 1. Ambient Air Impact Coefficients (Per unit change)")
 st.markdown("###### Air Impact = ((Impervious % * $A_{IMP}$) - (Tree Canopy % * $A_{TREE}$) - ([Albedo] - 0.15) * $A_{ALB}$)")
-st.markdown("*With a 35°C baseline of 0% impervious, 0% tree canopy, 0.15 albedo. All temperatures are in °C.*")
+st.markdown("*With a 35°C baseline of 0% impervious, 0% tree canopy, 0.15 albedo. All coefficients are in °C.*")
 st.markdown("""**Impervious surface | $A_{IMP}$ = 0.0075**  
     For each percent additional concrete/asphalt in a given area, the simulation adds 0.0075°C.
     """)
