@@ -51,6 +51,12 @@ st.markdown("*Identifies the relationship between tree canopy and impervious sur
 st.markdown("""**Tree canopy | $MRT_{TREE}$ = 0.15**  
     Tree canopy functions as the offset to higher temperatures, so the above formula **subtracts** tree impact from total temp.
     """)
+st.markdown(
+    "Sources: "
+    "[BU Combatting Urban Heat Island in Boston](https://www.bu.edu/rccp/files/2026/01/EE538-Madeline-Hale-Urban-Heat-Island-Effect-Paper.pdf), "
+    "[Resilient Cambridge Urban Heat Island Report](https://www.cambridgema.gov/-/media/files/cdd/climate/resilientcambridge/urbanheatislandtechnicalreport.pdf?), "
+    "[nature.com Heat Exposure Reductions in Boston](https://www.nature.com/articles/s43247-025-02462-3)"
+)
 st.write("")
 st.markdown("""**Green roofs | $MRT_{GROOF}$ = 0.002**  
     Green roofs introduce cooling on the rooftop level. While they are powerful with evapotranspiration and more reflective leaves, their soil traps and releases heat into the night.
