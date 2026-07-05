@@ -42,7 +42,7 @@ st.markdown("""**Green roofs | $A_{GROOF}$ = 0.003**
 st.markdown(
     "Sources: "
     "[nature.com Heat Exposure Reductions in Boston](https://www.nature.com/articles/s43247-025-02462-3), "
-    "[that sciencedirect link that doesnt work]
+    "[that sciencedirect link that doesnt work]"
 )
 st.write("")
 st.markdown("""**Albedo | $A_{ALB}$ = 6.1**  
