@@ -39,7 +39,23 @@ st.markdown("""**Albedo | $A_{ALB}$ = 6.1**
     Albedo is measured on a scale of 0 to 1, or 0% to 100% of light absorbed. This coefficient highlights the 6.1°C range across the albedo scale.  
     """)
 st.markdown("""### 2. Human "Real Feel" Formula (Mean Radiant Temperature)""")
-            
+st.markdown("""**Impervious surface | $MRT_{IMP}$ = 0.12**""")
+st.markdown(
+    "Source: "
+    "[Resilient Cambridge Urban Heat Island Report](https://www.cambridgema.gov/-/media/files/cdd/climate/resilientcambridge/urbanheatislandtechnicalreport.pdf?)"
+)
+st.markdown("*Identifies the relationship between tree canopy and impervious surface that removing impervious surface has ~83% the cooling impact as adding an equal amount of tree canopy."
+st.markdown("""**Tree canopy | $MRT_{TREE}$ = 0.15**  
+    Tree canopy functions as the offset to higher temperatures, so the above formula **subtracts** tree impact from total temp.
+    """)
+st.write("")
+st.markdown("""**Green roofs | $MRT_{GROOF}$ = 0.002**  
+    Green roofs introduce cooling on the rooftop level. While they are powerful with evapotranspiration and more reflective leaves, their soil traps and releases heat into the night.
+    """)
+st.write("")
+st.markdown("""**Albedo | $MRT_{ALB}$ = 5.0**  
+    Albedo is measured on a scale of 0 to 1, or 0% to 100% of light absorbed. This coefficient highlights the 6.1°C range across the albedo scale.  
+    """)
 st.markdown("""### 3. Environmental Justice & Microclimate Vulnerability""")
 st.write(
     "Document the studies regarding neighborhood-sized microclimates, historic redlining trends "
