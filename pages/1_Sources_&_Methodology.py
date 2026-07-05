@@ -48,8 +48,9 @@ st.markdown(
     "[Resilient Cambridge Urban Heat Island Report](https://www.cambridgema.gov/-/media/files/cdd/climate/resilientcambridge/urbanheatislandtechnicalreport.pdf?)"
 )
 st.markdown("*Identifies the relationship between tree canopy and impervious surface that removing impervious surface has ~83% the cooling impact to humans as adding an equal area of tree canopy.*")
+st.write("")
 st.markdown("""**Tree canopy | $MRT_{TREE}$ = 0.15**  
-    Tree canopy functions as the offset to higher temperatures, so the above formula **subtracts** tree impact from total temp.
+    Trees have multiple benefits to human thermal comfort: they cool the air, they cool the ground, and they prevent direct shortwave solar radiation from reaching the human body.
     """)
 st.markdown(
     "Sources: "
