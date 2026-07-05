@@ -53,8 +53,8 @@ st.markdown("""**Tree canopy | $MRT_{TREE}$ = 0.15**
     """)
 st.markdown(
     "Sources: "
-    "[BU Combatting Urban Heat Island in Boston](https://www.bu.edu/rccp/files/2026/01/EE538-Madeline-Hale-Urban-Heat-Island-Effect-Paper.pdf), "
-    "[Resilient Cambridge Urban Heat Island Report](https://www.cambridgema.gov/-/media/files/cdd/climate/resilientcambridge/urbanheatislandtechnicalreport.pdf?), "
+    "[BU Combatting Urban Heat Island in Boston](https://www.bu.edu/rccp/files/2026/01/EE538-Madeline-Hale-Urban-Heat-Island-Effect-Paper.pdf) | "
+    "[Resilient Cambridge Urban Heat Island Report](https://www.cambridgema.gov/-/media/files/cdd/climate/resilientcambridge/urbanheatislandtechnicalreport.pdf?) | "
     "[nature.com Heat Exposure Reductions in Boston](https://www.nature.com/articles/s43247-025-02462-3)"
 )
 st.write("")
