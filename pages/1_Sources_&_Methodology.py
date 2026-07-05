@@ -28,12 +28,22 @@ st.markdown(
 st.markdown("*This Cambridge study identifies a -0.056°C/-1% impervious surface cooling rate <u>in an isolated region</u>. This impact was corroborated with the nature.com study and scaled down accordingly to represent the air temperature of the <u>whole</u> city. While impervious surface might make a small region warm, air movement dilutes that heating to be spread across the whole city.*", unsafe_allow_html=True)
 st.write("")
 st.markdown("""**Tree canopy | $A_{TREE}$ = 0.01**  
-    Tree canopy functions as the offset to higher temperatures, so the above formula **subtracts** tree impact from total temp.
+    Tree canopy functions as the offset to higher temperatures, so the above formula **subtracts** tree impact from total temp. Every +1% tree canopy = -0.01°C.
     """)
+st.markdown(
+    "Sources: "
+    "[nature.com Heat Exposure Reductions in Boston](https://www.nature.com/articles/s43247-025-02462-3), "
+    "[Cambridge Green Infrastructure Analysis](https://www.cambridgema.gov/-/media/files/cdd/climate/ccpr/ccpralewifeappendixbgianalysisanduhimodeling_processed.pdf)"
+)
 st.write("")
 st.markdown("""**Green roofs | $A_{GROOF}$ = 0.003**  
-    Green roofs introduce cooling on the rooftop level. While they are powerful with evapotranspiration and more reflective leaves, their soil traps and releases heat into the night.
+    Green roofs introduce cooling on the rooftop level by transpiring water vapor into the air. While their leaves reflect solar radiation, their soil traps and releases heat through the night.
     """)
+st.markdown(
+    "Sources: "
+    "[nature.com Heat Exposure Reductions in Boston](https://www.nature.com/articles/s43247-025-02462-3), "
+    "[that sciencedirect link that doesnt work]
+)
 st.write("")
 st.markdown("""**Albedo | $A_{ALB}$ = 6.1**  
     Albedo is measured on a scale of 0 to 1, or 0% to 100% of light absorbed. This coefficient highlights the 6.1°C range across the albedo scale.  
