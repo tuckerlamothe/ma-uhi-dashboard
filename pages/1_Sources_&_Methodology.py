@@ -58,6 +58,10 @@ st.markdown(
     "[nature.com Heat Exposure Reductions in Boston](https://www.nature.com/articles/s43247-025-02462-3)"
 )
 st.markdown("*The BU paper notes an 11-25°C cooling impact on <u>surfaces</u> shaded by trees. This means that the longwave heat radiated by sidewalks and asphalt under trees feels between 11-25°C cooler to the human body. Additionally, trees cool the localized air temperature for humans by up to 3-5°C, say nature.com and Cambridge, through higher albedo and <u>evapotranspiration</u>.*", unsafe_allow_html=True)
+st.markdown(
+    "**What is evapotranspiration?**", 
+    help="Evapotranspiration is like nature's air conditioner. As water **evaporates** from soil and **transpires** from plants' leaves, vegetation absorbs heat from the air, which cools the urban environment."
+)
 st.write("")
 st.markdown("""**Green roofs | $MRT_{GROOF}$ = 0.002**  
     Green roofs introduce cooling on the rooftop level. While they are powerful with evapotranspiration and more reflective leaves, their soil traps and releases heat into the night.
