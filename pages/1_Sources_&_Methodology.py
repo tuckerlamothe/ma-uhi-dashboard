@@ -42,7 +42,7 @@ st.markdown("""**Green roofs | $A_{GROOF}$ = 0.003**
 st.markdown(
     "Sources: "
     "[nature.com Heat Exposure Reductions in Boston](https://www.nature.com/articles/s43247-025-02462-3), "
-    "[that sciencedirect link that doesnt work]"
+    "[Cooling the cities - A review of reflective and green roof mitigation technologies](https://www.sciencedirect.com/science/article/abs/pii/S0038092X12002447?via%3Dihub)"
 )
 st.write("")
 st.markdown("""**Albedo | $A_{ALB}$ = 6.1**  
