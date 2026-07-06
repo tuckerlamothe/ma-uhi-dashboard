@@ -28,7 +28,7 @@ st.markdown(
 st.markdown("*This Cambridge study identifies a -0.056°C/-1% impervious surface cooling rate <u>in an isolated region</u>. This impact was corroborated with the nature.com study and scaled down accordingly to represent the air temperature of the <u>whole</u> city. While impervious surface might make a small region warm, air movement dilutes that heating to be spread across the whole city.*", unsafe_allow_html=True)
 st.write("")
 st.markdown("""**Tree canopy | $A_{TREE}$ = 0.01**  
-    Tree canopy functions as the offset to higher temperatures, so the above formula **subtracts** tree impact from total temp. Every +1% tree canopy = -0.01°C.
+    Tree canopy functions as the offset to higher temperatures, so the above formula **subtracts** tree impact from total temp. Every +1% tree canopy = -0.01°C air temperature.
     """)
 st.markdown(
     "Sources: "
