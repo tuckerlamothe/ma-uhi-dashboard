@@ -77,6 +77,11 @@ st.write("")
 st.markdown("""**Green roofs | $MRT_{GROOF}$ = 0.002**  
     Green roofs introduce cooling on the rooftop level. While they are powerful with evapotranspiration and more reflective leaves, their soil traps and releases heat into the night.
     """)
+st.markdown(
+    "Source: "
+    "[Cooling the cities - A review of reflective and green roof mitigation technologies](https://www.sciencedirect.com/science/article/abs/pii/S0038092X12002447?via%3Dihub)"
+)
+st.markdown("*Since green roofs provide neither shade nor evapotranspirative benefits to humans at the ground level, their impact is largely beneficial only to air temperature.*")
 st.write("")
 st.markdown("""**Albedo | $MRT_{ALB}$ = 5.0**  
     Albedo is measured on a scale of 0 to 1, or 0% to 100% of light absorbed. This coefficient highlights the 6.1°C range across the albedo scale.  
