@@ -92,6 +92,11 @@ st.write("")
 st.markdown("""**Albedo | $MRT_{ALB}$ = 5.0**  
     Albedo is measured on a scale of 0 to 1, or 0% to 100% of light absorbed. This coefficient highlights the 6.1°C range across the albedo scale.  
     """)
+st.markdown(
+    "Sources: "
+    "[nature.com Heat Exposure Reductions in Boston](https://www.nature.com/articles/s43247-025-02462-3) | "
+    "[Cooling the cities - A review of reflective and green roof mitigation technologies](https://www.sciencedirect.com/science/article/abs/pii/S0038092X12002447?via%3Dihub)" 
+)
 st.markdown("""### 3. Environmental Justice & Microclimate Vulnerability""")
 st.write(
     "Document the studies regarding neighborhood-sized microclimates, historic redlining trends "
